@@ -24,7 +24,6 @@ function App() {
   const [selected, setSelected] = useState("monthly");
 
   // The formula for calculating the monthly payment is:
-
   // M = P(i(1+i)n)/((1+i)n - 1)
 
   // M: Monthly mortgage payment
@@ -63,6 +62,13 @@ function App() {
     setSelected(button);
   };
 
+  const cardStyle = {
+    px: 4,
+    py: 1,
+    width: "80%",
+    backgroundColor: "rgb(245, 245, 245)",
+  };
+
   return (
     <Box
       sx={{
@@ -73,9 +79,11 @@ function App() {
         backgroundColor: "rgb(200, 225, 200)",
       }}
     >
-      <Card sx={{ px: 4, width: "80%", backgroundColor: "rgb(245, 245, 245)" }}>
-        <h1 style={{ fontFamily: "fantasy" }}>Mortgage Calculator</h1>
-        <p>Calculate basic mortgage payments</p>
+      <Card sx={cardStyle}>
+        <Typography variant="h3">Mortgage Calculator</Typography>
+        <Typography variant="body2" sx={{ pb: 1 }}>
+          Calculate basic mortgage payments
+        </Typography>
         <ButtonGroup
           variant="outlined"
           aria-label="Basic button group"
@@ -109,7 +117,6 @@ function App() {
                 }}
                 value={loanAmt}
                 onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
-                  console.log("value is: ", e.target.value);
                   setLoanAmt(Number(e.target.value));
                 }}
               />
@@ -124,7 +131,6 @@ function App() {
                 }}
                 value={loanTerm}
                 onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
-                  console.log("value is: ", e.target.value);
                   setLoanTerm(Number(e.target.value));
                 }}
               />
@@ -140,7 +146,6 @@ function App() {
                 }}
                 value={interest}
                 onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
-                  console.log("value is: ", e.target.value);
                   setInterest(Number(e.target.value));
                 }}
               />
